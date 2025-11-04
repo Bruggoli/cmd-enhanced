@@ -27,8 +27,14 @@ public class RunningBasicBash {
           }
         } 
         break;
-        case "whoami":  { fun = new WhoAmI(args[1]); } break;
-        
+        case "whoami":  { 
+          try {
+            fun = new WhoAmI(args[1]); 
+          } catch (ArrayIndexOutOfBoundsException e) {
+            fun = new WhoAmI("");
+          }
+        } 
+        break;
         default: log.warning("Cant find command: " + args[0] + " is not valid.");
       }
     } else {
